@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>时代少年团 | TNT 官方追星站</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+</head>
+<body>
+  <!-- 粒子背景容器 -->
+  <canvas id="particlesCanvas"></canvas>
+
+  <!-- 自定义光标 -->
+  <div class="custom-cursor" id="customCursor"></div>
+  <div class="cursor-trail" id="cursorTrail"></div>
+
+  <!-- 页面加载动画 -->
+  <div class="page-loader" id="pageLoader">
+    <div class="loader-content">
+      <div class="loader-logo">
+        <span>T</span><span>N</span><span>T</span>
+      </div>
+      <div class="loader-bar">
+        <div class="loader-bar-fill"></div>
+        <div class="loader-mascot">
+          <img src="images/小虎.png" alt="小虎">
+        </div>
+      </div>
+      <p class="loader-text">时代少年团</p>
+    </div>
+  </div>
+
+  <!-- 导航栏 -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo">
+        <svg class="logo-svg" viewBox="0 0 120 42" width="90" height="32">
+          <text x="60" y="34" text-anchor="middle" class="logo-stroke" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-dasharray="280" stroke-dashoffset="280" font-size="38" font-weight="900" font-family="Arial, sans-serif" letter-spacing="6">TNT</text>
+          <text x="60" y="34" text-anchor="middle" class="logo-fill" fill="var(--accent)" font-size="38" font-weight="900" font-family="Arial, sans-serif" letter-spacing="6" opacity="0">TNT</text>
+        </svg>
+        <span class="logo-sub">时代少年团</span>
+      </a>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#home" class="nav-link active" data-section="home">首页</a></li>
+        <li><a href="#about" class="nav-link" data-section="about">关于</a></li>
+        <li><a href="#members" class="nav-link" data-section="members">成员</a></li>
+        <li><a href="#gallery" class="nav-link" data-section="gallery">相册</a></li>
+        <li><a href="#music" class="nav-link" data-section="music">音乐</a></li>
+        <li><a href="#contact" class="nav-link" data-section="contact">应援</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="切换主题">
+          <i class="fas fa-moon"></i>
+        </button>
+        <button class="hamburger" id="hamburger" aria-label="菜单">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 主内容 -->
+  <main>
+    <!-- 首页 Hero -->
+    <section id="home" class="hero-section">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1 class="hero-title">
+          <span class="title-line line-1">时代少年团</span>
+          <span class="title-line line-2">TEENS IN TIMES</span>
+        </h1>
+        <p class="hero-subtitle">破天下，定风云，时代少年并肩行</p>
+        <div class="hero-buttons">
+          <a href="#members" class="btn btn-primary">
+            <span>了解更多</span><i class="fas fa-arrow-right"></i>
+          </a>
+          <a href="#gallery" class="btn btn-outline">
+            <span>精彩瞬间</span><i class="fas fa-images"></i>
+          </a>
+        </div>
+        <div class="scroll-indicator">
+          <span>向下滚动</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+      </div>
+      <div class="hero-parallax-bg"></div>
+    </section>
+
+    <!-- 关于我们 -->
+    <section id="about" class="about-section">
+      <div class="section-container">
+        <h2 class="section-title" data-reveal>
+          <span class="title-cn">关于我们</span>
+          <span class="title-en">About TNT</span>
+        </h2>
+        <div class="about-grid">
+          <div class="about-card" data-reveal data-flip>
+            <div class="about-card-inner">
+              <div class="about-card-front">
+                <i class="fas fa-star"></i>
+                <h3>出道历程</h3>
+              </div>
+              <div class="about-card-back">
+                <p>2019年11月23日正式出道，由马嘉祺、丁程鑫、宋亚轩、刘耀文、张真源、严浩翔、贺峻霖七位成员组成。</p>
+              </div>
+            </div>
+          </div>
+          <div class="about-card" data-reveal data-flip>
+            <div class="about-card-inner">
+              <div class="about-card-front">
+                <i class="fas fa-music"></i>
+                <h3>代表作品</h3>
+              </div>
+              <div class="about-card-back">
+                <p>《无尽的冒险》《爆米花》《少年时代》《哪吒》《绝配》《百忧戒》等热门单曲。</p>
+              </div>
+            </div>
+          </div>
+          <div class="about-card" data-reveal data-flip>
+            <div class="about-card-inner">
+              <div class="about-card-front">
+                <i class="fas fa-trophy"></i>
+                <h3>成就荣誉</h3>
+              </div>
+              <div class="about-card-back">
+                <p>多次获得音乐盛典奖项，演唱会座无虚席，微博超话常年霸榜，国民度持续攀升。</p>
+              </div>
+            </div>
+          </div>
+          <div class="about-card" data-reveal data-flip>
+            <div class="about-card-inner">
+              <div class="about-card-front">
+                <i class="fas fa-heart"></i>
+                <h3>粉丝名称</h3>
+              </div>
+              <div class="about-card-back">
+                <p>官方粉丝名为"爆米花"，应援色为黑黄相间，象征着冲破黑暗、迎接光明的力量。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 成员介绍 -->
+    <section id="members" class="members-section">
+      <div class="section-container">
+        <h2 class="section-title" data-reveal>
+          <span class="title-cn">成员介绍</span>
+          <span class="title-en">Members</span>
+        </h2>
+        <div class="members-grid">
+          <div class="member-card" data-reveal>
+            <div class="member-img-wrapper">
+              <div class="member-img" style="background: linear-gradient(135deg, #EAF2FF 0%, #9A91F2 100%);">
+                <div class="member-avatar">
+                  <img src="https://aka.doubaocdn.com/s/VGvl1wmG5g" alt="马嘉祺" loading="lazy">
+                </div>
+              </div>
+              <div class="member-glow"></div>
+            </div>
+            <div class="member-info">
+              <h3>马嘉祺</h3>
+              <span class="member-role">队长 · 主唱 · 应援色：月白星紫</span>
+              <p class="member-desc">温柔细腻，唱功扎实，舞台表现力极强，是团队的全能ACE。</p>
+              <div class="member-social">
+                <a href="https://weibo.com/u/6290114447" target="_blank" class="social-link"><i class="fab fa-weibo"></i></a>
+                <a href="#" class="social-link"><i class="fas fa-heart"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="member-card" data-reveal>
+            <div class="member-img-wrapper">
+              <div class="member-img" style="background: linear-gradient(135deg, #FFF8DC 0%, #FFD700 100%);">
+                <div class="member-avatar">
+                  <img src="https://aka.doubaocdn.com/s/uFBH1wmG5h" alt="丁程鑫" loading="lazy">
+                </div>
+              </div>
+              <div class="member-glow"></div>
+            </div>
+            <div class="member-info">
+              <h3>丁程鑫</h3>
+              <span class="member-role">主舞 · 门面 · 应援色：金色</span>
+              <p class="member-desc">舞蹈实力出众，颜值担当，性格阳光开朗，舞台上的绝对焦点。</p>
+              <div class="member-social">
+                <a href="https://weibo.com/u/5781292544" target="_blank" class="social-link"><i class="fab fa-weibo"></i></a>
+                <a href="#" class="social-link"><i class="fas fa-heart"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="member-card" data-reveal>
+            <div class="member-img-wrapper">
+              <div class="member-img" style="background: linear-gradient(135deg, #E1F5FA 0%, #63C5DE 100%);">
+                <div class="member-avatar">
+                  <img src="https://aka.doubaocdn.com/s/9FHA1wmG5i" alt="宋亚轩" loading="lazy">
+                </div>
+              </div>
+              <div class="member-glow"></div>
+            </div>
+            <div class="member-info">
+              <h3>宋亚轩</h3>
+              <span class="member-role">主唱 · 综艺担当 · 应援色：浅空天胧</span>
+              <p class="member-desc">嗓音清澈独特，笑容治愈，综艺感满分，是团内的人气小太阳。</p>
+              <div class="member-social">
+                <a href="https://weibo.com/u/6015189526" target="_blank" class="social-link"><i class="fab fa-weibo"></i></a>
+                <a href="#" class="social-link"><i class="fas fa-heart"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="member-card" data-reveal>
+            <div class="member-img-wrapper">
+              <div class="member-img" style="background: linear-gradient(135deg, #FFFFFF 0%, #A1A3A6 50%, #D1D1D1 100%);">
+                <div class="member-avatar">
+                  <img src="https://aka.doubaocdn.com/s/ZAYA1wmG5j" alt="刘耀文" loading="lazy">
+                </div>
+              </div>
+              <div class="member-glow"></div>
+            </div>
+            <div class="member-info">
+              <h3>刘耀文</h3>
+              <span class="member-role">Rapper · 舞担 · 应援色：耀月银白</span>
+              <p class="member-desc">低音炮Rap炸裂全场，舞台魅力四射，是团队的霸气忙内。</p>
+              <div class="member-social">
+                <a href="https://weibo.com/u/6177367279" target="_blank" class="social-link"><i class="fab fa-weibo"></i></a>
+                <a href="#" class="social-link"><i class="fas fa-heart"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="member-card" data-reveal>
+            <div class="member-img-wrapper">
+              <div class="member-img" style="background: linear-gradient(135deg, #c0ebd7 0%, #f98d74 100%);">
+                <div class="member-avatar">
+                  <img src="https://aka.doubaocdn.com/s/nhHG1wmG5t" alt="张真源" loading="lazy">
+                </div>
+              </div>
+              <div class="member-glow"></div>
+            </div>
+            <div class="member-info">
+              <h3>张真源</h3>
+              <span class="member-role">主唱 · 创作 · 应援色：水玉暖炽</span>
+              <p class="member-desc">音域宽广，唱功扎实，温柔沉稳，是团队不可或缺的实力派。</p>
+              <div class="member-social">
+                <a href="https://weibo.com/u/5908064369" target="_blank" class="social-link"><i class="fab fa-weibo"></i></a>
+                <a href="#" class="social-link"><i class="fas fa-heart"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="member-card" data-reveal>
+            <div class="member-img-wrapper">
+              <div class="member-img" style="background: linear-gradient(135deg, #FF8A80 0%, #FF5546 100%);">
+                <div class="member-avatar">
+                  <img src="https://aka.doubaocdn.com/s/0C3H1wmG5u" alt="严浩翔" loading="lazy">
+                </div>
+              </div>
+              <div class="member-glow"></div>
+            </div>
+            <div class="member-info">
+              <h3>严浩翔</h3>
+              <span class="member-role">Rapper · 创作 · 应援色：珊瑚红</span>
+              <p class="member-desc">Rap创作实力超群，舞台表现力炸裂，是团队的全能创作型艺人。</p>
+              <div class="member-social">
+                <a href="https://weibo.com/u/6400910960" target="_blank" class="social-link"><i class="fab fa-weibo"></i></a>
+                <a href="#" class="social-link"><i class="fas fa-heart"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="member-card" data-reveal>
+            <div class="member-img-wrapper">
+              <div class="member-img" style="background: linear-gradient(135deg, #E8F5E9 0%, #ADD5A2 100%);">
+                <div class="member-avatar">
+                  <img src="https://aka.doubaocdn.com/s/GUY41wmG5u" alt="贺峻霖" loading="lazy">
+                </div>
+              </div>
+              <div class="member-glow"></div>
+            </div>
+            <div class="member-info">
+              <h3>贺峻霖</h3>
+              <span class="member-role">舞担 · 综艺 · 应援色：春海明月</span>
+              <p class="member-desc">舞蹈灵动有范，口才出众，机灵可爱，是团队的快乐源泉。</p>
+              <div class="member-social">
+                <a href="https://weibo.com/u/6405901418" target="_blank" class="social-link"><i class="fab fa-weibo"></i></a>
+                <a href="#" class="social-link"><i class="fas fa-heart"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 照片相册 -->
+    <section id="gallery" class="gallery-section">
+      <div class="section-container">
+        <h2 class="section-title" data-reveal>
+          <span class="title-cn">精彩相册</span>
+          <span class="title-en">Gallery</span>
+        </h2>
+        <div class="gallery-filter" data-reveal>
+          <button class="filter-btn active" data-filter="all">全部</button>
+          <button class="filter-btn" data-filter="stage">舞台</button>
+          <button class="filter-btn" data-filter="daily">日常</button>
+          <button class="filter-btn" data-filter="group">团体</button>
+        </div>
+        <div class="gallery-upload" data-reveal>
+          <label class="upload-btn" for="galleryUpload">
+            <i class="fas fa-cloud-upload-alt"></i> 上传照片
+          </label>
+          <input type="file" id="galleryUpload" accept="image/*" multiple hidden>
+        </div>
+        <div class="gallery-grid" id="galleryGrid">
+          <div class="gallery-item" data-category="stage" data-reveal>
+            <div class="gallery-img">
+              <img src="https://aka.doubaocdn.com/s/7WUm1wmGQy" alt="舞台燃炸" loading="lazy">
+            </div>
+            <div class="gallery-overlay">
+              <h4>舞台燃炸</h4>
+              <p>演唱会高光时刻</p>
+            </div>
+          </div>
+          <div class="gallery-item" data-category="daily" data-reveal>
+            <div class="gallery-img">
+              <img src="https://aka.doubaocdn.com/s/ormp1wmGR7" alt="日常花絮" loading="lazy">
+            </div>
+            <div class="gallery-overlay">
+              <h4>日常花絮</h4>
+              <p>幕后可爱瞬间</p>
+            </div>
+          </div>
+          <div class="gallery-item" data-category="group" data-reveal>
+            <div class="gallery-img">
+              <img src="https://aka.doubaocdn.com/s/byau1wmGR6" alt="团体合照" loading="lazy">
+            </div>
+            <div class="gallery-overlay">
+              <h4>团体合照</h4>
+              <p>七人同心</p>
+            </div>
+          </div>
+          <div class="gallery-item" data-category="stage" data-reveal>
+            <div class="gallery-img">
+              <img src="https://aka.doubaocdn.com/s/snE71wmGQy" alt="舞台王者" loading="lazy">
+            </div>
+            <div class="gallery-overlay">
+              <h4>舞台王者</h4>
+              <p>炸裂全场</p>
+            </div>
+          </div>
+          <div class="gallery-item" data-category="daily" data-reveal>
+            <div class="gallery-img">
+              <img src="https://aka.doubaocdn.com/s/DgTx1wmGkQ" alt="快乐日常" loading="lazy">
+            </div>
+            <div class="gallery-overlay">
+              <h4>快乐日常</h4>
+              <p>大连联排花絮</p>
+            </div>
+          </div>
+          <div class="gallery-item" data-category="group" data-reveal>
+            <div class="gallery-img">
+              <img src="https://aka.doubaocdn.com/s/8A2q1wmGkj" alt="团队合影" loading="lazy">
+            </div>
+            <div class="gallery-overlay">
+              <h4>团队合影</h4>
+              <p>永远在一起</p>
+            </div>
+          </div>
+          <div class="gallery-item" data-category="stage" data-reveal>
+            <div class="gallery-img">
+              <img src="https://aka.doubaocdn.com/s/7UqU1wmGQy" alt="燃爆舞台" loading="lazy">
+            </div>
+            <div class="gallery-overlay">
+              <h4>燃爆舞台</h4>
+              <p>火力全开</p>
+            </div>
+          </div>
+          <div class="gallery-item" data-category="daily" data-reveal>
+            <div class="gallery-img">
+              <img src="https://aka.doubaocdn.com/s/rUxD1wmGR7" alt="温馨时刻" loading="lazy">
+            </div>
+            <div class="gallery-overlay">
+              <h4>温馨时刻</h4>
+              <p>粉丝见面会</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 音乐播放器 -->
+    <section id="music" class="music-section">
+      <div class="section-container">
+        <h2 class="section-title" data-reveal>
+          <span class="title-cn">音乐作品</span>
+          <span class="title-en">Music</span>
+        </h2>
+        <div class="music-player" data-reveal>
+          <div class="custom-music-player" id="customMusicPlayer">
+            <div class="music-cover">
+              <div class="music-disc spinning" id="musicDisc">
+                <div class="disc-ring"></div>
+                <div class="disc-center"></div>
+              </div>
+            </div>
+            <div class="music-info">
+              <h3 class="music-title" id="musicTitle">无尽的冒险</h3>
+              <p class="music-artist" id="musicArtist">时代少年团</p>
+            </div>
+            <div class="music-controls">
+              <a class="music-btn music-play-btn" id="musicPlayLink" href="https://i.y.qq.com/v8/playsong.html?songmid=002xJnkx4dDpVv" target="_blank" title="在QQ音乐中打开">
+                <i class="fab fa-qq"></i> 在QQ音乐播放
+              </a>
+            </div>
+            <div class="music-playlist">
+              <a class="playlist-item active" href="https://i.y.qq.com/v8/playsong.html?songmid=002xJnkx4dDpVv" target="_blank" data-title="无尽的冒险">
+                <span class="playlist-num">01</span>
+                <span class="playlist-name">无尽的冒险</span>
+                <span class="playlist-badge">QQ音乐</span>
+              </a>
+              <a class="playlist-item" href="https://i.y.qq.com/v8/playsong.html?songmid=003LNbEy2vGBXG" target="_blank" data-title="爆米花">
+                <span class="playlist-num">02</span>
+                <span class="playlist-name">爆米花</span>
+                <span class="playlist-badge">QQ音乐</span>
+              </a>
+              <a class="playlist-item" href="https://i.y.qq.com/v8/playsong.html?songmid=002IdsKB1F0YX1" target="_blank" data-title="少年时代">
+                <span class="playlist-num">03</span>
+                <span class="playlist-name">少年时代</span>
+                <span class="playlist-badge">QQ音乐</span>
+              </a>
+              <a class="playlist-item" href="https://i.y.qq.com/v8/playsong.html?songmid=0039rJNt2rNDz2" target="_blank" data-title="哪吒">
+                <span class="playlist-num">04</span>
+                <span class="playlist-name">哪吒</span>
+                <span class="playlist-badge">QQ音乐</span>
+              </a>
+              <a class="playlist-item" href="https://i.y.qq.com/v8/playsong.html?songmid=000EApX10oJiqD" target="_blank" data-title="绝配">
+                <span class="playlist-num">05</span>
+                <span class="playlist-name">绝配</span>
+                <span class="playlist-badge">QQ音乐</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 应援 -->
+    <section id="contact" class="contact-section">
+      <div class="section-container">
+        <h2 class="section-title" data-reveal>
+          <span class="title-cn">粉丝应援</span>
+          <span class="title-en">Support</span>
+        </h2>
+        <div class="contact-content" data-reveal>
+          <div class="contact-info">
+            <div class="contact-item">
+              <i class="fas fa-globe"></i>
+              <div>
+                <h4><a href="https://weibo.com/u/6620842908" target="_blank" class="contact-link">官方微博</a></h4>
+                <p>@时代少年团</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <i class="fab fa-bilibili"></i>
+              <div>
+                <h4><a href="https://space.bilibili.com/3546630773016865" target="_blank" class="contact-link">B站官方</a></h4>
+                <p>时代少年团</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-music"></i>
+              <div>
+                <h4>音乐平台</h4>
+                <p><a href="https://y.qq.com/n/ryqq_v2/search?w=%E6%97%B6%E4%BB%A3%E5%B0%91%E5%B9%B4%E5%9B%A2&t=song&remoteplace=txt.yqq.top" target="_blank" class="contact-link">QQ音乐</a> / <a href="https://music.163.com/#/artist?id=33000040" target="_blank" class="contact-link">网易云音乐</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="contact-form">
+            <h3>加入爆米花大家庭</h3>
+            <form id="supportForm">
+              <div class="form-group">
+                <input type="text" placeholder="你的昵称" required>
+              </div>
+              <div class="form-group">
+                <input type="email" placeholder="你的邮箱" required>
+              </div>
+              <div class="form-group">
+                <textarea placeholder="想对TNT说的话..." rows="4" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary ripple-btn">
+                <span>发送应援</span><i class="fas fa-paper-plane"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 页脚 -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-logo">
+        <svg class="logo-svg" viewBox="0 0 120 42" width="90" height="32">
+          <text x="60" y="34" text-anchor="middle" class="logo-stroke" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-dasharray="280" stroke-dashoffset="280" font-size="38" font-weight="900" font-family="Arial, sans-serif" letter-spacing="6">TNT</text>
+          <text x="60" y="34" text-anchor="middle" class="logo-fill" fill="var(--accent)" font-size="38" font-weight="900" font-family="Arial, sans-serif" letter-spacing="6" opacity="0">TNT</text>
+        </svg>
+        <span class="logo-sub">时代少年团</span>
+      </div>
+      <p class="footer-slogan">破天下，定风云，时代少年并肩行</p>
+      <div class="footer-social">
+        <a href="https://weibo.com/u/6620842908" target="_blank" class="footer-social-link"><i class="fab fa-weibo"></i></a>
+        <a href="https://space.bilibili.com/3546630773016865" target="_blank" class="footer-social-link"><i class="fab fa-bilibili"></i></a>
+        <a href="https://www.douyin.com/user/865306482" target="_blank" class="footer-social-link"><i class="fab fa-tiktok"></i></a>
+        <a href="https://y.qq.com/n/ryqq_v2/search?w=%E6%97%B6%E4%BB%A3%E5%B0%91%E5%B9%B4%E5%9B%A2&t=song&remoteplace=txt.yqq.top" target="_blank" class="footer-social-link"><i class="fas fa-music"></i></a>
+      </div>
+      <p class="footer-copy">&copy; 2024 TNT Fan Site. Made with <i class="fas fa-heart"></i> by 爆米花</p>
+    </div>
+  </footer>
+
+  <!-- 回到顶部 -->
+  <button class="back-to-top" id="backToTop">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- 成员详情弹窗 -->
+  <div class="member-modal" id="memberModal">
+    <div class="member-modal-overlay"></div>
+    <div class="member-modal-container">
+      <button class="member-modal-close" id="modalClose"><i class="fas fa-times"></i></button>
+      <div class="member-modal-body" id="modalBody">
+        <!-- 动态填充 -->
+      </div>
+    </div>
+  </div>
+
+  <!-- 图片灯箱 -->
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-overlay"></div>
+    <button class="lightbox-close" id="lightboxClose"><i class="fas fa-times"></i></button>
+    <button class="lightbox-prev" id="lightboxPrev"><i class="fas fa-chevron-left"></i></button>
+    <button class="lightbox-next" id="lightboxNext"><i class="fas fa-chevron-right"></i></button>
+    <div class="lightbox-container">
+      <img src="" alt="" id="lightboxImg">
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
